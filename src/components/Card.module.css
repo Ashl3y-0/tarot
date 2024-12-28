@@ -1,0 +1,13 @@
+.card {
+    background-color: rgb(61, 80, 255);
+    display: block;
+    box-sizing: border-box;
+    width: 280px;
+    height: 480px;
+    margin: 30px;
+}
+.card__name,
+.card__suit {
+    color: white;
+    background-color: inherit;
+}
