@@ -1,10 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 * {
     margin: 0;
     padding: 0;
-    /* border: 1px solid blue; */
-    background-color: rgb(203, 208, 255);
+    box-sizing: border-box;
+    color: white;
 }
 
 body {
-    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    background-image: url('../public/images/background/Background-img.webp');
+    background-attachment: fixed;
 }

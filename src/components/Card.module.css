@@ -1,13 +1,9 @@
 .card {
-    background-color: rgb(61, 80, 255);
+    background-color: #0e1111;
     display: block;
-    box-sizing: border-box;
-    width: 280px;
-    height: 480px;
-    margin: 30px;
+    width: 298px;
+    height: 420px;
 }
-.card__name,
-.card__suit {
+.card__name {
     color: white;
-    background-color: inherit;
 }

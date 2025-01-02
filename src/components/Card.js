@@ -1,10 +1,10 @@
 import styles from './Card.module.css';
 
-function Card({ name, suit }) {
+function Card({ name, image }) {
     return (
-        <div className={styles.card}>
-            <h3 className={styles.card__name}>{name}</h3>
-            {suit && <p className={styles.card__suit}>{suit}</p>}
+        <div className={`${styles.card} px-3 py-3 mt-8 mx-14 object-center rounded-xl border-gray-600 shadow-md`}>
+            <img className="border-2 rounded-md border-gray-400" src={image} />
+            <p className={`${styles.card__name} py-3 text-center`}>{name}</p>
         </div>
     );
 }

@@ -1,11 +1,12 @@
 import Card from './Card';
-import styles from './MappedCards.module.css';
 function MappedCards({ cards }) {
     return (
-        <div className={styles.cards}>
-            {cards.map((item) => (
-                <Card key={item.id} name={item.name} suit={item.suit} />
-            ))}
+        <div className=" min-h-[488px] col-span-1 w-full">
+            <div className="flex justify-center">
+                {cards.map((item) => (
+                    <Card key={item.id} name={item.name} suit={item.suit} image={item.image} />
+                ))}
+            </div>
         </div>
     );
 }

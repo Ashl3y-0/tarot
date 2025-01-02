@@ -24,7 +24,7 @@ const Form = ({ randomCardsGenerate, randomCards }) => {
                     messages: [
                         {
                             role: 'user',
-                            content: `Кратко дай расклад таро. Выпали карты: ${randomCards[0].name}, ${randomCards[1].name}, ${randomCards[2].name}. Вопрос: ${input}`,
+                            content: `Расклад таро, Не более 450 символов. Выпали карты: ${randomCards[0].name}, ${randomCards[1].name}, ${randomCards[2].name}. Вопрос: ${input}`,
                         },
                     ],
                 }),
@@ -43,15 +43,20 @@ const Form = ({ randomCardsGenerate, randomCards }) => {
     };
 
     return (
-        <div>
-            <button onClick={randomCardsGenerate}>генгерация карт</button>
-            <form onSubmit={handleSubmit}>
-                <textarea value={input} onChange={(e) => setInput(e.target.value)} placeholder="Введите запрос к нейросети" rows="4" cols="50" />
-                <button type="submit">Отправить</button>
+        <div className="grid grid-cols-6 content-start min-h-[200px]">
+            <form className="col-start-2 col-span-2 mx-3 my-3" onSubmit={handleSubmit}>
+                <textarea className="resize-none w-[100%] px-3 py-2 rounded-md bg-neutral-700" value={input} onChange={(e) => setInput(e.target.value)} placeholder=" Ваш вопрос?" />
+                <div className="w-[100%] flex justify-between">
+                    <button className="block max-w-[49%] w-[100%] h-[100%]  px-4 py-1 rounded-md bg-blue-600 hover:bg-blue-300" onClick={randomCardsGenerate}>
+                        Расклад
+                    </button>
+                    <button className="block max-w-[49%] w-[100%] h-[100%]  px-4 py-1 rounded-md bg-blue-600 hover:bg-blue-300" type="submit">
+                        Отправить
+                    </button>
+                </div>
             </form>
-            <div>
-                <h3>Ответ:</h3>
-                <p>{response}</p>
+            <div className="col-start-4 col-span-2 mx-3 my-3 px-3 py-2 rounded-md bg-neutral-700">
+                <p className="float-right text-md">{response}</p>
             </div>
         </div>
     );
