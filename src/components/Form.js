@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import Button from './Button';
 
-const Form = ({ randomCardsGenerate, randomCards }) => {
+const Form = ({ randomCardsGenerate, randomCards, receivedKey }) => {
     const [input, setInput] = useState('');
     const [response, setResponse] = useState('');
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const OPENROUTER_API_KEY = process.env.REACT_APP_OPENROUTER_API_KEY;
+        const OPENROUTER_API_KEY = receivedKey;
+        // process.env.REACT_APP_OPENROUTER_API_KEY
         const YOUR_SITE_URL = 'https://yourwebsite.com';
         const YOUR_SITE_NAME = 'My React App';
 
@@ -45,18 +47,14 @@ const Form = ({ randomCardsGenerate, randomCards }) => {
     return (
         <div className="grid grid-cols-6 content-start min-h-[200px]">
             <form className="col-start-2 col-span-2 mx-3 my-3" onSubmit={handleSubmit}>
-                <textarea className="resize-none w-[100%] px-3 py-2 rounded-md bg-neutral-700" value={input} onChange={(e) => setInput(e.target.value)} placeholder=" Ваш вопрос?" />
+                <textarea className="resize-none w-[100%] px-3 py-2 rounded-md bg-neutral-700 font-serif" value={input} onChange={(e) => setInput(e.target.value)} placeholder=" Ваш вопрос?" />
                 <div className="w-[100%] flex justify-between">
-                    <button className="block max-w-[49%] w-[100%] h-[100%]  px-4 py-1 rounded-md bg-blue-600 hover:bg-blue-300" onClick={randomCardsGenerate}>
-                        Расклад
-                    </button>
-                    <button className="block max-w-[49%] w-[100%] h-[100%]  px-4 py-1 rounded-md bg-blue-600 hover:bg-blue-300" type="submit">
-                        Отправить
-                    </button>
+                    <Button onClick={randomCardsGenerate}>Сделать расклад</Button>
+                    <Button type="submit">Спросить</Button>
                 </div>
             </form>
             <div className="col-start-4 col-span-2 mx-3 my-3 px-3 py-2 rounded-md bg-neutral-700">
-                <p className="float-right text-md">{response}</p>
+                <p className={`text-sm font-mono animate-typing `}>{response}</p>
             </div>
         </div>
     );
