@@ -1,19 +1,17 @@
 .typewriter {
-    width: 22ch;
-    animation: typing 2s steps(1), blink 0.5s step-end infinite alternate;
-    white-space: nowrap;
     overflow: hidden;
-    border-right: 2px solid;
+    /* border-right: 0.15em solid orange; */
+    white-space: nowrap;
+
+    width: 0;
+    animation: typing 1s steps(500, end) forwards;
 }
 
 @keyframes typing {
     from {
         width: 0;
     }
-}
-
-@keyframes blink {
-    50% {
-        border-color: transparent;
+    to {
+        width: 100%;
     }
 }
