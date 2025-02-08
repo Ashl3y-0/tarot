@@ -4,7 +4,6 @@ import cards from './data/Cards';
 import Form from './components/Form';
 import BurgerMenuBtn from './components/BurgerMenuBtn';
 import Menu from './components/Menu';
-import styles from './App.module.css';
 
 function App() {
     const [randomCards, setRandomCards] = useState([]);
@@ -42,21 +41,24 @@ function App() {
     const getKeyHandle = (data) => {
         setKey(data);
     };
-    // Познакомился с useCallback. Бесконечный ререндер на useEffect в Form из-за списка зависимостей, где функция триггерила саму себя
+    // useСallback for useEffect in the Form. Otherwise an endless re-render
     const updateStatuses = useCallback((status) => {
         setStatuses((statuses) => ({ ...statuses, responseReceived: status }));
     }, []);
 
-    console.log(statuses);
     return (
-        <div className="App w-full h-screen py-[1%] ">
-            <div className="w-[90%] min-h-full my-auto mx-auto py-1 mr-auto overflow-hidden rounded-2xl bg-zinc-800/95 backdrop-blur-sm ">
-                {/* bg-slate-50/70 */}
-                <Menu clicked={clicked} getKey={getKeyHandle} receivedKey={key} />
-                <BurgerMenuBtn clickHandle={clickMenuHandle} clicked={clicked} />
-                <img className="w-[18%] block mx-auto relative " src="/images/logo/title-white.svg" alt="" />
-                <MappedCards cards={randomCards} />
-                <Form randomCardsGenerate={drawRandomCards} randomCards={randomCards} receivedKey={key} updateStatuses={updateStatuses} deleteRandomCards={deleteRandomCards} />
+        <div className={`w-full h-[100%] py-[1%] overflow-auto bg-hqBg bg-cover bg-fixed xs:bg-lqBg sm:bg-lqBg md:bg-lqBg`}>
+            <div className={`w-[97%] h-[100%] my-auto mx-auto py-2 relative z-40 overflow-auto rounded-2xl bg-zinc-800/90 backdrop-blur-sm`}>
+                <header>
+                    <Menu clicked={clicked} getKey={getKeyHandle} receivedKey={key} />
+                    <BurgerMenuBtn clickHandle={clickMenuHandle} clicked={clicked} />
+                    <img className={`block mx-auto xs:w-[43%] sm:w-[33%] md:w-[29%] lg:w-[20%] xl:w-[20%] 2xl:w-[18%]`} src="/images/logo/title-white.svg" alt="" />
+                </header>
+                <main>
+                    <MappedCards cards={randomCards} />
+                    <Form randomCardsGenerate={drawRandomCards} randomCards={randomCards} receivedKey={key} updateStatuses={updateStatuses} deleteRandomCards={deleteRandomCards} />
+                </main>
+                <footer></footer>
             </div>
         </div>
     );

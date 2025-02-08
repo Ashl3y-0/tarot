@@ -1,6 +1,6 @@
-function Button({ children, onClick, className, type = 'button' }) {
+function Button({ children, onClick, className, type = 'button', disabled }) {
     return (
-        <button type={type} className={`block max-w-[49%] w-[100%] h-[100%]  px-4 py-1 rounded-md bg-blue-600 hover:bg-blue-300 ${className}`} onClick={onClick}>
+        <button type={type} className={` block w-full h-full rounded-md ${className}`} onClick={onClick} disabled={disabled}>
             {children}
         </button>
     );

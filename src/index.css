@@ -1,16 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase:wght@500;600;700&display=swap');
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: white;
-    /* color: black; */
 }
-
+html,
 body {
-    background-image: url('../public/images/background/Background-img.webp');
-    background-attachment: fixed;
+    height: 100%;
+}
+#root {
+    height: 100%;
 }
